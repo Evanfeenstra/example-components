@@ -1,12 +1,16 @@
 import React, {useState} from 'react'
+import { useHistory } from "react-router-dom"
 
 const width = 100
 
 export default function Tabs(props){
   const {tabs,onSelect,barColor} = props
 
+  const history = useHistory()
+  const path = history.location.pathname.substring(1);
+
   const [selected,setSelected] = useState(
-    tabs ? tabs[0] : null
+    path || (tabs ? tabs[0] : null)
   )
 
   const selIndex = tabs.indexOf(selected)
