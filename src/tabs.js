@@ -13,7 +13,8 @@ export default function Tabs(props){
     path || (tabs ? tabs[0] : null)
   )
 
-  const selIndex = tabs.indexOf(selected)
+  let selIndex = tabs.indexOf(selected)
+  if (selIndex<0) selIndex = 0
   const barLeft = selIndex*width
 
   return <div style={styles.tabs}>
